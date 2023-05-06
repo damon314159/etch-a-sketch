@@ -22,6 +22,7 @@ body {
     border-width: 4px;
     border-color: #1F1717;
     border-style: solid;
+    border-radius: 3%;
     box-shadow: 4px 4px 7px 7px #401717;
 }
 
@@ -31,6 +32,7 @@ body {
 
 .title-card {
     background-color: grey;
+    border-radius: 4px;
     box-shadow: 0px 0px 1px 2px #4E4E4E;
 }
 
@@ -91,6 +93,7 @@ button:active {
     border-width: 4px;
     border-color: #1f1717;
     border-style: solid;
+    border-radius: 6px;
     background-color: rgba(245, 245, 245, 0.8);
     box-shadow: inset 1px 1px 5px 3px #4E4E4E;
 }
