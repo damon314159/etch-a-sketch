@@ -11,8 +11,7 @@ function createGrid (size) {
         array[i].classList.add("row");
         array[i].setAttribute("style", 
         "width:"+600+"px;"
-        + "height:"+dimensions+"px;"
-        + "display:flex;");
+        + "height:"+dimensions+"px;");
         grid.appendChild(array[i]);
     
         for (let j=0; j<size; j++) { //define cells in each row
@@ -63,7 +62,7 @@ function initializeClearBtn () {
         const grid = document.querySelector(".grid");
         const gridElements = grid.querySelectorAll(".grid-element");
         gridElements.forEach(element => {
-            element.style.backgroundColor = "rgba(0,0,0,0)";
+            element.style.backgroundColor = "#DEC6C6";
         });
     });
 };
