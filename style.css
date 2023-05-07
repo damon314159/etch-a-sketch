@@ -55,7 +55,8 @@ h2 {
     margin: 8px 24px;
 }
 
-.left-wall, .right-wall, .button-container {
+.left-wall, .right-wall, 
+.button-container, .size-buttons {
     width: 90px;
     display: flex;
     flex-direction: column;
