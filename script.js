@@ -56,7 +56,19 @@ function initializeGrids() {
         });
     });
 };
+
+function initializeClearBtn () {
+    const clearBtn = document.querySelector(".clear");
+    clearBtn.addEventListener("click", ()=> {
+        const grid = document.querySelector(".grid");
+        const gridElements = grid.querySelectorAll(".grid-element");
+        gridElements.forEach(element => {
+            element.style.backgroundColor = "rgba(0,0,0,0)";
+        });
+    });
+};
                 
                 
 const canvas = document.querySelector(".canvas");
 initializeGrids();
+initializeClearBtn();
