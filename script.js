@@ -66,8 +66,18 @@ function initializeClearBtn () {
         });
     });
 };
-                
+
+function initializeColor() {
+    const colorBtns = document.querySelectorAll(".left-wall .button-container>*");
+    colorBtns.forEach(element => {
+        element.addEventListener("click", (event)=> {
+            color = event.target.classList[0];
+        });
+    });
+};
                 
 const canvas = document.querySelector(".canvas");
+let color = "dark"; //needs to be accessible outside of initializeColor
+initializeColor();
 initializeGrids();
 initializeClearBtn();
