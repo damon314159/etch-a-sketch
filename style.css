@@ -109,6 +109,7 @@ button:active {
     position: relative;
     z-index: -3;
 }
+
 .row {
     position: relative;
     display: flex;
@@ -121,4 +122,16 @@ button:active {
     border: 1px solid rgba(222,222,222,0.7);
     background-color: #DEC6C6;
     z-index: -1;
+}
+
+.invis-grid {
+    position: relative;
+    top: -600px;
+    z-index: 9;
+}
+
+.invis-element {
+    position: relative;
+    opacity: 0;
+    z-index: 10;
 }

@@ -1,6 +1,6 @@
 "use strict";
 
-function createGrid (size) {
+function createGrid(size) {
     let array=[];
     const grid = document.createElement("div");
     grid.classList.add("grid");
@@ -27,26 +27,53 @@ function createGrid (size) {
     return grid;
 };
 
+function createInvisGrid(size) {
+    const invisGrid = createGrid(size);
+    invisGrid.classList.add("invis-grid");
+    const gridElements=invisGrid.querySelectorAll(".grid-element");
+    gridElements.forEach(element=>{
+        element.classList.add("invis-element");
+        element.addEventListener("click", event=>console.log(event));
+    });
+    return(invisGrid);
+}
+
 function initializeGrids() {
-    const sizeBtnList = document.querySelectorAll(".size-buttons>*")
-    const tenGrid = createGrid(10);
+    /*first create visible and invisible copies of each grid,
+    where the visible is sent to back for shading, and invis
+    is put on top for click events*/
+    const tenGrid = createGrid(10); 
+    const invisTenGrid = createInvisGrid(10);
     const twentyGrid = createGrid(20);
+    const invisTwentyGrid = createInvisGrid(20);
     const thirtyGrid = createGrid(30);
+    const invisThirtyGrid = createInvisGrid(30);
+
     let gridsArray = [tenGrid, twentyGrid, thirtyGrid];
+    let invisGridsArray = [invisTenGrid, invisTwentyGrid, invisThirtyGrid];
     canvas.appendChild(gridsArray[0]);
+    canvas.appendChild(invisGridsArray[0]);
+    //start page with a 10x10 grid
+
+    const sizeBtnList = document.querySelectorAll(".size-buttons>*")
     sizeBtnList.forEach(element => {
         element.addEventListener("click", (event)=> {
             const size = event.target.classList[0].slice(-2); //eg button.sqr10 -> 10
-            canvas.removeChild(canvas.children[0]);
+            while (canvas.firstChild) {
+                canvas.removeChild(canvas.lastChild);
+            };
             switch (size) {
                 case "10":
-                    canvas.appendChild(gridsArray[0])
+                    canvas.appendChild(gridsArray[0]);
+                    canvas.appendChild(invisGridsArray[0]);
                     break;
                 case "20":
-                    canvas.appendChild(gridsArray[1])
+                    canvas.appendChild(gridsArray[1]);
+                    canvas.appendChild(invisGridsArray[1]);
                     break;
                 case "30":
-                    canvas.appendChild(gridsArray[2])
+                    canvas.appendChild(gridsArray[2]);
+                    canvas.appendChild(invisGridsArray[2]);
                     break;
                 default:
                     console.log("something went wrong");
@@ -75,7 +102,7 @@ function initializeColor() {
         });
     });
 };
-                
+
 const canvas = document.querySelector(".canvas");
 let color = "dark"; //needs to be accessible outside of initializeColor
 initializeColor();
